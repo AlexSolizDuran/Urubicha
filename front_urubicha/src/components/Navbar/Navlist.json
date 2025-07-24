@@ -1,0 +1,10 @@
+[
+    { "name" : "Inicio","href" : "/"},
+    { "name" : "Descubre", "href" : "/descubre"},
+    { "name" : "Hospedajes", "href" : "/hospedaje"},
+    { "name" : "Areas", "href" : "/area"},
+    { "name" : "Gastronomia", "href" : "/gastronomia"},
+    { "name" : "Paquetes", "href" : "/paquete"},
+    { "name" : "Tienda", "href" : "/tienda"},
+    { "name" : "Administrador", "href" : "/admin"}
+]

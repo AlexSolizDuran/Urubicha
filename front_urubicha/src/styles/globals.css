@@ -1,0 +1,5 @@
+@import "tailwindcss";
+/*aqui se declaran variables que se pueden usar en tailwind*/
+@theme {
+  --color-color1: #1B4332; /* Este es el color principal del navbar*/
+}
