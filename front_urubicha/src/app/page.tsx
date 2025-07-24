@@ -1,5 +1,5 @@
 import Image from "next/image";
 
 export default function Home() {
-  return <>principal</>;
+  return <>principal esto es un prueba del pull request</>;
 }
