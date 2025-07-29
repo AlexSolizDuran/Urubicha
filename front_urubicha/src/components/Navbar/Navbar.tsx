@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="bg-color1 text-white p-4">
+    <nav className="bg-color1 text-white p-5">
       <ul className=" flex gap-4">
         {/* un ciclo que genera todas las pestañas establecidas en Navlist */}
         {Navlist.map((link, id) => (
