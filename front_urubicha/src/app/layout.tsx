@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import NavBar from "@/components/Navbar/NavBar";
 import "@/styles/globals.css";
 
+// este layout no tendra ningun componente porque es donde se genera todo
 export default function RootLayout({
   children,
 }: Readonly<{
