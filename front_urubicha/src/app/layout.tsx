@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "@/styles/globals.css";
-import Navbar from "@/components/Navbar/Navbar";
 
+import "@/styles/globals.css";
+
+// este layout no tendra ningun componente porque es donde se genera todo
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -11,8 +11,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <Navbar></Navbar>
-        <div className="p-4">{children}</div>
+        <div>{children}</div>
       </body>
     </html>
   );

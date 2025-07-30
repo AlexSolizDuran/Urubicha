@@ -1,5 +1,5 @@
 import Image from "next/image";
 
 export default function Home() {
-  return <>principal esto es un prueba del pull request 123</>;
+  return <>ESTA ES LA PESTAÑA DE INICIO QUE ESTA PUBLICA</>;
 }
