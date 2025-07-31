@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-
+import { Geist, Geist_Mono } from "next/font/google";
+import NavBar from "@/components/Navbar/NavBar";
 import "@/styles/globals.css";
 
 // este layout no tendra ningun componente porque es donde se genera todo
@@ -10,8 +11,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+      <title> uruicha </title>
+      </head>
       <body>
-        <div>{children}</div>
+        <header> <NavBar/></header>
+        <main className="p-4">{children}</main>
+        <footer>{/*componente de pie de pagina*/}</footer>
       </body>
     </html>
   );

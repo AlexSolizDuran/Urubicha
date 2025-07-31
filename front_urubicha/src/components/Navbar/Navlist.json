@@ -1,10 +1,10 @@
 [
-    { "name" : "Inicio","href" : "/"},
-    { "name" : "Descubre", "href" : "/descubre"},
-    { "name" : "Hospedajes", "href" : "/hospedaje"},
-    { "name" : "Areas", "href" : "/area"},
-    { "name" : "Gastronomia", "href" : "/gastronomia"},
-    { "name" : "Paquetes", "href" : "/paquete"},
-    { "name" : "Tienda", "href" : "/tienda"},
-    { "name" : "Administrador", "href" : "/admin"}
+    { "id" : 1,"name" : "Inicio","href" : "/"},
+    { "id" : 2,"name" : "Descubre", "href" : "/descubre"},
+    { "id" : 3,"name" : "Hospedajes", "href" : "/hospedaje"},
+    { "id" : 4,"name" : "Areas", "href" : "/area"},
+    { "id" : 5,"name" : "Gastronomia", "href" : "/gastronomia"},
+    { "id" : 6,"name" : "Paquetes", "href" : "/paquete"},
+    { "id" : 7,"name" : "Tienda", "href" : "/tienda"},
+    { "id" : 8,"name" : "Administrador", "href" : "/admin"}
 ]
