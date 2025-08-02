@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-
 import "@/styles/globals.css";
+import { AuthProvider } from '../contexts/AuthContext';
 
-// este layout no tendra ningun componente porque es donde se genera todo
+
+
+// este layout no tendra ningun componentes porque es donde se genera todo
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -11,7 +12,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <div>{children}</div>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,52 +1,20 @@
-import {
-  Injectable,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
-import { PrismaService } from 'src/database/prisma.service';
-import { CreateUserDto } from './dto/create-user-dto';
-import * as bcrypt from 'bcrypt';
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class UserService {
   constructor(private prisma: PrismaService) {}
 
-  async createUser(algo: CreateUserDto) {
-    try {
-      const salts = await bcrypt.genSalt();
-      const hash = await bcrypt.hash(algo.password, salts);
-      const newUser = await this.prisma.user.create({
-        data: { username: algo.username, password: hash },
-      });
-      const { password, ...result } = newUser;
-      return result;
-    } catch (error) {
-      if (error instanceof Error)
-        throw new InternalServerErrorException(error.message);
-    }
+  async findByEmail(email: string) {
+    return this.prisma.user.findUnique({
+      where: { email },
+      include: { role: true }, // incluye info del rol
+    });
   }
-  async findOneUser(username: string) {
-    try {
-      const user = await this.prisma.user.findFirst({ where: { username } });
-      if (user) return user;
-      return null;
-    } catch (error) {
-      if (error instanceof Error)
-        throw new InternalServerErrorException(error.message);
-    }
-  }
-  async getUseryId(id: number) {
-    try {
-      const user = await this.prisma.user.findFirst({ where: { id } });
-      if (!user)
-        throw new NotFoundException('USUARIO CON EL {ID} NO ENCONTRADO');
 
-      return user;
-    } catch (error) {
-      if (error instanceof NotFoundException)
-        throw new NotFoundException(error.message);
-      if (error instanceof Error)
-        throw new InternalServerErrorException(error.message);
-    }
+  async createUser(data: { email: string; password: string; roleId: number }) {
+    return this.prisma.user.create({
+      data,
+    });
   }
 }
