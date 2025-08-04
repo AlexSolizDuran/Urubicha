@@ -1,4 +1,4 @@
-import Navlist from "@/components/Navbar/Navlist.json"
+    import Navlist from "@/components/Navbar/Navlist.json"
 import Link from "next/link";
 import Image from "next/image";
 
