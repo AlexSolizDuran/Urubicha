@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  
 }
 
 datasource db {
@@ -15,15 +15,51 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  name      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id       Int       @id @default(autoincrement()) @map("id")
+  name     String    @map("name")
+  email    String    @unique @map("email")
+  password String    @map("password")
+  userRoles UserRole[]
+
+  @@map("user")
 }
 
-model rol{
-  id        Int      @id @default(autoincrement())
-    name      String?
+model Role {
+  id          Int            @id @default(autoincrement()) @map("id")
+  name        String         @unique @map("name")
+  userRoles   UserRole[]
+  rolePermissions RolePermission[]
+
+  @@map("role")
 }
+
+model Permission {
+  id             Int             @id @default(autoincrement()) @map("id")
+  name           String          @unique @map("name")
+  rolePermissions RolePermission[]
+
+  @@map("permission")
+}
+
+model UserRole {
+  userId Int @map("user_id")
+  roleId Int @map("role_id")
+
+  user User @relation(fields: [userId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+
+  @@id([userId, roleId])
+  @@map("user_role")
+}
+
+model RolePermission {
+  roleId       Int @map("role_id")
+  permissionId Int @map("permission_id")
+
+  role       Role       @relation(fields: [roleId], references: [id])
+  permission Permission @relation(fields: [permissionId], references: [id])
+
+  @@id([roleId, permissionId])
+  @@map("role_permission")
+}
+
